@@ -1298,32 +1298,36 @@
           // starts a process which can be used...
           if (cmd == 'edit') {
 
-            return; // currently edit is disabled...
-            /*
             // The process is here
             var comp = templateCompiler();
             var me = this;
-            var jsonTplData = comp.compile( "<div>{{"+propName+":aceJS}}</div>");
-            main.div().button().text("EXIT").on("click", function() {
-            main.parent().popView();
-            setTimeout( function() {
-            me.scrollBottom();
-            },500);
-            });    
-            item.then(
-            function() {
-            
-            if(!item[propName]) {
-                item.set(propName, "").then( function() {
-                    var dom = comp.composeTemplate( item._docData,  jsonTplData );
-                    main.div()._dom.appendChild(dom);
+            // var jsonTplData = comp.compile( "<div>{{"+propName+":aceJS}}</div>");
+
+            main.div().button().text('EXIT').on('click', function () {
+              main.parent().popView();
+              setTimeout(function () {
+                me.scrollBottom();
+              }, 500);
+            });
+
+            item.then(function () {
+
+              if (!item[propName]) {
+                item.set(propName, '').then(function () {
+                  main.div().aceEditor({
+                    varName: propName,
+                    width: 400,
+                    height: 400
+                  }, item);
                 });
                 return;
-            }            
-            var dom = comp.composeTemplate( item._docData,  jsonTplData );
-            main.div()._dom.appendChild(dom);
+              }
+              main.div().aceEditor({
+                varName: propName,
+                width: 400,
+                height: 400
+              }, item);
             });
-            */
           }
         };
       })(this);
