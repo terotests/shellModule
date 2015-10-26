@@ -283,7 +283,7 @@
                   var cmds = fileData.split('\n');
                   console.log('Commands ', fileData);
                   cmds.forEach(function (c) {
-                    var sh = itemShell(me);
+                    var sh = itemShell(null, me);
                     console.log('Should run  ', c);
                     if (c) sh.exec(c, me.getCurrent(), '');
                   });
