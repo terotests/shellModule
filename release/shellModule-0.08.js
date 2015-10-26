@@ -1306,7 +1306,7 @@
 
             item.then(function () {
 
-              if (!item[propName]) {
+              if (!item.hasOwn(propName)) {
                 item.set(propName, ' ');
                 main.div().aceEditor({
                   varName: propName,
