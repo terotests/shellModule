@@ -1059,18 +1059,13 @@
           this._vars = {};
           this._cmds = {};
 
-          if (this.isObject(rootDocument)) {
-            this._parentShell = rootDocument;
-            return;
-          }
-
           if (!_cmds) {
             _cmds = {};
             this._initShellCmds();
           }
 
           // When the shell is ready, just continue stuff...
-          this._doc = _data(rootDocument);
+          this._doc = rootDocument;
 
           this._currentDir = this._doc;
 
@@ -3885,7 +3880,7 @@
               width: '1200px',
               height: '350px'
             });
-            var shell = itemShell(url);
+            var shell = itemShell(fileSystemData);
 
             shell.initializeShell(fileSystemData, parentShell);
             shell.mainWindow(mainDiv);
