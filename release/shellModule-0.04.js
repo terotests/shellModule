@@ -824,7 +824,7 @@
                   me.output(name, 'dir', {
                     onClick: function onClick() {
                       me.exec('cd ' + name, ctx);
-                      me.exec('dir');
+                      me.exec('ls');
                     }
                   });
                 } else {
