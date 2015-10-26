@@ -193,7 +193,7 @@
               if (params) {
 
                 curr.set(params, {});
-                returnPromise.resolve(r);
+                returnPromise.resolve('Directory ' + params + ' created');
               } else {
                 returnPromise.resolve('could not create');
               }
