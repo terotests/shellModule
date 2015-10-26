@@ -363,6 +363,7 @@
                   // returnPromise.resolve("Removing properties not working");
                   //returnPromise.resolve("Trying to remove "+params);
                   o.unset(params);
+                  returnPromise.resolve('Should have removed ' + params);
                 } else {
                   returnPromise.resolve('No such file or property');
                 }
