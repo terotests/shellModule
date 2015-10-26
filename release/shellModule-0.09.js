@@ -867,27 +867,18 @@
 
             if (cmdLine.substring(0, 4) == 'edit') {
 
-              var fileName = cmdLine.substring(5);
+              var fileName = cmdLine.substring(5).trim();
               var value;
 
-              if (value = this._currentDir[fileName]) {
-
-                if (this.isFunction(value)) {
+              if (this._currentDir) {
+                value = this._currentDir[fileName];
+                if (!this.isObject(value)) {
 
                   var newC = _e();
                   this.getOutputArea().pushView(newC);
 
                   this.startProcess('edit', newC, this._currentDir, fileName);
                 }
-              } else {
-                var me = this;
-                this._currentDir.set(fileName, '').then(function () {
-
-                  var newC = _e();
-                  me.getOutputArea().pushView(newC);
-
-                  me.startProcess('edit', newC, this._currentDir, fileName);
-                });
               }
 
               // startProcess  
