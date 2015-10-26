@@ -809,7 +809,7 @@
               }
               me.output(pathStr);
             }
-            if (cmdLine == 'ls') {
+            if (cmdLine.substring(2) == 'ls') {
 
               me.output('..', 'dir', {
                 onClick: function onClick() {
