@@ -180,11 +180,8 @@
               var curr = this.getCurrent();
               if (params) {
 
-                curr.createArrayField(params, []).then(function () {
-                  returnPromise.resolve('Created ' + params);
-                }).fail(function (r) {
-                  returnPromise.resolve(r);
-                });
+                curr.set(params, []);
+                returnPromise.resolve('Created ' + params);
               } else {
                 returnPromise.resolve('could not create');
               }
@@ -195,11 +192,8 @@
               var curr = this.getCurrent();
               if (params) {
 
-                curr.createObjectField(params, {}).then(function () {
-                  returnPromise.resolve('Created ' + params);
-                }).fail(function (r) {
-                  returnPromise.resolve(r);
-                });
+                curr.set(params, {});
+                returnPromise.resolve(r);
               } else {
                 returnPromise.resolve('could not create');
               }
@@ -344,11 +338,8 @@
                   n2 = parts[1];
                 }
 
-                if (o1[n1]) o2.set(n2, o1[n1]()).then(function () {
-                  returnPromise.resolve('Copied ' + parts[0] + ' to ' + parts[1]);
-                }).fail(function () {
-                  returnPromise.resolve('Could not copy ' + parts[0] + ' to ' + parts[1]);
-                });
+                if (o1[n1]) o2.set(n2, o1[n1]());
+                returnPromise.resolve('Copied ' + parts[0] + ' to ' + parts[1]);
               } else {
                 returnPromise.resolve('Could not copy ' + parts[0] + ' to ' + parts[1]);
               }
@@ -387,11 +378,8 @@
                     me = this;
                 if (fileData) {
                   console.log('About to push data');
-                  o.push(fileData).then(function () {
-                    returnPromise.resolve('Created array');
-                  }).fail(function (reason) {
-                    returnPromise.resolve('Created array Failed  ' + reason);
-                  });
+                  o.push(fileData);
+                  returnPromise.resolve('Created array');
                 } else {
                   returnPromise.resolve('Invalid JSON');
                 }
